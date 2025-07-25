@@ -2,7 +2,7 @@
 import tensorflow as tf
 from tensorflow.keras import layers, models
 
-# Buat model DNN
+# Buat model DNN (Deep Neural Network)
 model = models.Sequential([
     layers.Input(shape=(X_train_processed.shape[1],)),
     layers.Dense(128, activation='relu'),
@@ -11,13 +11,13 @@ model = models.Sequential([
     layers.Dense(1)  # Output regresi
 ])
 
-# Kompilasi model
+# Kompilasi model DNN (Deep Neural Network)
 model.compile(optimizer='adam', loss='mean_squared_error', metrics=['mae'])
 
 # Ringkasan model (opsional)
 model.summary()
 
-# Latih model
+# Latih model DNN (Deep Neural Network)
 history = model.fit(
     X_train_processed, y_train,
     validation_split=0.1,
@@ -30,7 +30,7 @@ history = model.fit(
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 import numpy as np
 
-# Prediksi terhadap data test
+# Prediksi terhadap data test 
 y_pred = model.predict(X_test_processed).flatten()
 
 # Hitung MAE dan RMSE
@@ -65,3 +65,5 @@ plt.legend()
 plt.grid(True)
 plt.tight_layout()
 plt.show()
+
+
